@@ -11,7 +11,7 @@
 `ClubsResponseDto`에는 `recruitingStatus`와 인증 여부 두 가지 조건이 있다.
 서버가 상태에 따라 `_links`를 다르게 내려주면, **클라이언트가 별도 분기 없이 링크 존재 여부로 버튼 렌더링을 결정**할 수 있다.
 
-```
+```json
 // OPEN + 로그인 O
 {
   "id": 1,
