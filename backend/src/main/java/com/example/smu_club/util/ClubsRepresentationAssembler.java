@@ -5,10 +5,14 @@ import com.example.smu_club.club.dto.ClubsResponseDto;
 import com.example.smu_club.domain.RecruitingStatus;
 import org.springframework.hateoas.Link;
 import org.springframework.hateoas.server.RepresentationModelAssembler;
+import org.springframework.security.authentication.AnonymousAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
+
 @Component
 public class ClubsRepresentationAssembler
         implements RepresentationModelAssembler<ClubsResponseDto, ClubsResponseDto> {
@@ -23,12 +27,24 @@ public class ClubsRepresentationAssembler
         dto.add(linkTo(methodOn(GuestClubController.class)
                 .findAllClubs()).withRel("list"));
 
-        // apply 링크: 모집 중일 때만 포함
+        // OPEN일 때: 로그인 여부에 따라 apply 또는 login 링크
         if (dto.getRecruitingStatus() == RecruitingStatus.OPEN) {
-            dto.add(Link.of("/api/v1/member/clubs/" + dto.getId() + "/applications")
-                    .withRel("apply"));
+            if (isLoggedIn()) {
+                dto.add(Link.of("/api/v1/member/clubs/" + dto.getId() + "/applications")
+                        .withRel("apply"));
+            } else {
+                dto.add(Link.of("/api/v1/public/auth/login")
+                        .withRel("login"));
+            }
         }
 
         return dto;
+    }
+
+    private boolean isLoggedIn() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return auth != null
+                && auth.isAuthenticated()
+                && !(auth instanceof AnonymousAuthenticationToken);
     }
 }
