@@ -1,0 +1,99 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.4.5'
+	id 'io.spring.dependency-management' version '1.1.7'
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+description = 'club for Sangmyung university'
+
+java {
+	toolchain {
+		languageVersion = JavaLanguageVersion.of(21)
+	}
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+	all {
+		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-logging' // Logback 제거 -> Log4j2 사용
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+	implementation 'org.springframework.boot:spring-boot-starter-security'
+	implementation 'org.springframework.boot:spring-boot-starter-validation'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-devtools' //서버를 재시작 없이 화면에 변경사항을 바로 확인할 수 있다.
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.6'
+	compileOnly 'org.projectlombok:lombok'
+	runtimeOnly 'com.mysql:mysql-connector-j'
+	annotationProcessor 'org.projectlombok:lombok'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	testImplementation 'org.awaitility:awaitility:4.2.0'
+	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+	implementation 'org.springframework.boot:spring-boot-starter-hateoas'
+
+
+	// jjwt
+	implementation("io.jsonwebtoken:jjwt-api:0.11.5")
+	runtimeOnly("io.jsonwebtoken:jjwt-impl:0.11.5")
+	runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.11.5")
+
+	implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+	implementation 'io.github.resilience4j:resilience4j-spring-boot3:2.2.0'
+	implementation 'org.springframework.boot:spring-boot-starter-aop'
+
+	// OCI관련
+	implementation 'com.oracle.oci.sdk:oci-java-sdk:3.38.0'
+	implementation 'com.oracle.oci.sdk:oci-java-sdk-common:3.38.0'
+	implementation 'com.oracle.oci.sdk:oci-java-sdk-objectstorage:3.38.0'
+	implementation 'com.oracle.oci.sdk:oci-java-sdk-common-httpclient:3.38.0'
+	implementation 'com.oracle.oci.sdk:oci-java-sdk-common-httpclient-choices:3.38.0'
+	implementation ('com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey3:3.37.0')
+
+
+	// 트랜잭션 이벤트 리스너 관련
+	implementation 'org.springframework.retry:spring-retry'
+	implementation 'org.springframework:spring-aspects' // AOP 기능 사용을 위한 AspectJ 의존성
+	// JavaMailSender
+	implementation 'org.springframework.boot:spring-boot-starter-mail'
+
+	//Log4j2
+	implementation 'org.springframework.boot:spring-boot-starter-log4j2'
+
+	// Excel 파일 다운 관련
+	implementation 'org.apache.poi:poi-ooxml:5.2.3'
+
+	//Only Test
+	runtimeOnly 'com.h2database:h2'
+
+	// for Deployment
+	// OCI SDK
+	implementation 'com.oracle.oci.sdk:oci-java-sdk-secrets:3.28.0'
+	implementation 'com.oracle.oci.sdk:oci-java-sdk-common-httpclient-jersey:3.28.0'
+
+	// Jackson for JSON parsing  (default installed Spring Boot)
+	implementation 'com.fasterxml.jackson.core:jackson-databind'
+
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}
+// JAR 파일 생성 안함 -> Dockerfile 사용 시 꼭 필요
+jar {
+
+	enabled = false
+
+}

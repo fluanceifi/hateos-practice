@@ -1,0 +1,160 @@
+/* src/pages/apply_form/apply_form.css */
+.apply_view_main {
+  padding: 20px 16px 40px;
+  background: #e9efff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.apply_view_section {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.apply_view_title {
+  background: #0e207f;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 14px 14px 0 0;
+  text-align: center;
+  font-weight: 800;
+}
+
+.apply_view_card {
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field_label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.field_input {
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.field_input:focus {
+  border-color: #0e207f;
+  box-shadow: 0 0 0 3px rgba(14, 32, 127, 0.15);
+}
+
+.answer_area {
+  width: 100%;
+  min-height: 120px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+}
+
+.answer_area:focus {
+  border-color: #0e207f;
+  box-shadow: 0 0 0 3px rgba(14, 32, 127, 0.15);
+}
+
+.fieldset {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.radio_item {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 13px;
+  color: #374151;
+}
+
+.mtop8 {
+  margin-top: 8px;
+}
+
+.file_row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file_name {
+  font-size: 13px;
+  color: #374151;
+}
+
+.outline_btn {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 20px;
+  border: 1.5px solid #0e207f;
+  color: #0e207f;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* 결정 토글 (불합격/미정/합격) */
+.decision_toggle {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-top: 8px;
+  background: #f1f5f9;
+  padding: 6px;
+  border-radius: 9999px;
+}
+
+.seg {
+  border: none;
+  border-radius: 9999px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.06s ease, filter 0.15s ease;
+  color: #111827;
+  background: transparent;
+}
+
+/* 활성 색상 */
+.seg-fail.is_active {
+  background: #ef4444;
+  color: #fff;
+}
+
+.seg-pending.is_active {
+  background: #9ca3af;
+  color: #fff;
+}
+
+.seg-pass.is_active {
+  background: #0e207f;
+  color: #fff;
+}
+
+.submit_btn {
+  margin-top: 10px;
+  width: 100%;
+}

@@ -1,0 +1,166 @@
+/* src/pages/mypage/my_page.css */
+.mypage_main {
+  padding: 20px 16px 40px;
+  background: #e9efff;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+.header-name {
+  position: absolute;
+  right: 16px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.mypage_section {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mypage_title {
+  background: #0e207f;
+  color: #fff;
+  font-size: 15px;
+  padding: 8px;
+  border-radius: 14px 14px 0 0;
+  text-align: center;
+  font-weight: 600;
+}
+
+.mypage_card {
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+  padding: 12px 0 16px;
+}
+
+.club_box {
+  background: #f6f7ff;
+  border-radius: 14px;
+  margin: 8px 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.club_title {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0e207f;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.club_buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.club_buttons button {
+  border: none;
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  font-size: 14px;
+  color: #111;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+}
+
+.add_btn {
+  display: block;
+  margin: 16px auto 4px;
+  padding: 7px 11px;
+  border: 1.5px solid #0e207f;
+  background: #fff;
+  color: #0e207f;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.add_btn:hover {
+  background: #0e207f;
+  color: #fff;
+}
+
+.mypage_footer {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  gap: 5px;
+}
+
+.link_btn {
+  background: none;
+  border: none;
+  font-size: 16px;
+  color: #333;
+}
+
+.logout_red {
+  color: #d9534f;
+  font-weight: 600;
+}
+
+/* src/pages/mypage/mypage.css 하단에 추가 */
+.recruit_actions {
+  margin-top: 4px;
+  display: flex;
+  justify-content: center;
+}
+
+/* mypage.css 하단에 추가 (다른 버튼과 동일한 크기 맞춤) */
+.status_btn {
+  width: 100%;
+  border-radius: 12px;
+  padding: 10px;
+  font-size: 140px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  transition: background 0.2s, transform 0.1s;
+}
+
+/* 색상만 다르게 지정 */
+.status_btn.off {
+  background: #003cff !important; /* ✅ 강제 적용 */
+  color: #ffffff !important;
+}
+
+.status_btn.on {
+  background: #ff0000 !important; /* ✅ 강제 적용 */
+  color: #ffffff !important;
+}
+.recruit_btn {
+  min-width: 92px;
+}
+
+.recruit_btn.start {
+  background: #5179ff; /* 파랑 */
+  color: #fff;
+}
+
+.recruit_btn.stop {
+  background: #b91c1c; /* 빨강 */
+  color: #fff;
+}
+
+.recruit_btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+/* src/pages/mypage/mypage.css */
+/* ✅ 두번째 버전 쓸 때만 추가 */
+
+.is_disabled_btn {
+  opacity: 0.55;
+  cursor: not-allowed;
+  pointer-events: auto; /* ✅ 클릭 이벤트는 받게 */
+  filter: none;
+}

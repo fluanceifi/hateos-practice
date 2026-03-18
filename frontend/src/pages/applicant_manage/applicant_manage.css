@@ -1,0 +1,158 @@
+/* src/pages/applicant_manage/applicant_manage.css */
+
+.applicant_main {
+  padding: 20px 16px 40px;
+  background: #e9efff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.applicant_section {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.applicant_title {
+  background: #0e207f;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px 12px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* 상단 안내 + 버튼 영역 */
+.applicant_footer {
+  padding: 12px 16px 8px;
+}
+
+.hint_text {
+  font-size: 13px;
+  color: #6b7280;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+/* 버튼 2개 반반 */
+.applicant_actions {
+  display: flex;
+  gap: 10px;
+}
+
+.applicant_actions .mail_btn {
+  flex: 1;
+  width: 50%;
+  border: none;
+  background: #ff0000;
+  color: #fff;
+  border-radius: 14px;
+  padding: 12px 10px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(14, 32, 127, 0.22);
+}
+
+.applicant_actions .mail_btn:hover {
+  filter: brightness(1.05);
+}
+
+.applicant_actions .mail_btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+  filter: none;
+}
+
+/* 리스트 */
+.applicant_list {
+  background: #fff;
+  padding: 6px 14px 14px;
+}
+
+/* 버튼 카드 */
+.applicant_card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: #fff;
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+
+  padding: 16px 16px;
+  margin: 10px 0;
+
+  cursor: pointer;
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+  text-align: left;
+}
+
+.applicant_card:hover {
+  transform: scale(1.01);
+}
+
+.applicant_card:active {
+  transform: scale(0.995);
+}
+
+.applicant_card_btn {
+  appearance: none;
+}
+
+/* 왼쪽 텍스트: 이름 + 학번(한 줄) */
+.applicant_info {
+  font-size: 15px;
+  font-weight: 700;
+  color: #111827;
+  display: inline-flex;
+  gap: 8px;
+  align-items: baseline;
+
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 오른쪽 상태 뱃지 */
+.applicant_status {
+  min-width: 92px;
+  text-align: center;
+  border-radius: 12px;
+  padding: 10px 0;
+  font-size: 14px;
+  font-weight: 800;
+  flex: 0 0 auto;
+}
+
+.applicant_status.pass {
+  background: #eef2ff;
+  color: #0e207f;
+}
+
+.applicant_status.fail {
+  background: #ffe4e4;
+  color: #d62b2b;
+}
+
+.applicant_status.pending {
+  background: #f3f4f6;
+  color: #6b7280;
+}
+
+/* (기존 코드에서 쓰는 날짜 span이 있으면 안 보이게) */
+.applicant_date {
+  display: none;
+}
+
+/* 모바일 클릭 하이라이트 제거 */
+.applicant_card_btn {
+  -webkit-tap-highlight-color: transparent;
+}

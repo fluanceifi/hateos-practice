@@ -1,0 +1,218 @@
+/* ===== Reset & Base (공통) ===== */
+:root {
+  --safe-top: env(safe-area-inset-top);
+  --safe-right: env(safe-area-inset-right);
+  --safe-bottom: env(safe-area-inset-bottom);
+  --safe-left: env(safe-area-inset-left);
+
+  --page-header-height: 56px;
+  --page-header-maxw: 390px;
+
+  --app-w: 390px;
+  --app-h-min: 844px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #eff3ff; /* 🔹 전체 배경색 남색 */
+}
+
+.icon {
+  width: 1rem;
+  height: 1rem;
+  stroke-width: 2;
+}
+
+.safe-area-padding {
+  padding-top: max(16px, var(--safe-top));
+  padding-left: max(0px, var(--safe-left));
+  padding-right: max(0px, var(--safe-right));
+  padding-bottom: max(0px, var(--safe-bottom));
+}
+/* notch 있는 기기 대응: 상단 safe padding */
+.safe-area-top {
+  padding-top: max(16px, var(--safe-top));
+}
+
+/* ===== 상단바 ===== */
+.page-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #fff;
+  border-radius: 0 0 14px 14px; /* 하단 좌·우만 radius */
+  padding: max(12px, var(--safe-top)) 16px 12px; /* safe-area 상단 여백 */
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
+}
+
+.page-header .container {
+  max-width: var(--page-header-maxw);
+  margin: 0 auto;
+}
+
+.page-header-content {
+  position: relative;
+  height: var(--page-header-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-header h1 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #111827;
+  text-align: center;
+}
+
+/* 뒤로가기 버튼 */
+.back-btn {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+}
+.back-btn .icon {
+  width: 24px;
+  height: 24px;
+  stroke-width: 2;
+}
+
+.page-header-content .header-action {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 9999px;
+  background: #0e207f;
+  color: #fff;
+  font-size: 13px;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===== 앱 레이아웃 ===== */
+.app-shell {
+  min-height: 100dvh;
+  background: #0e207f; /* 🔹 전체 배경색 일치 */
+  display: flex;
+  justify-content: center;
+}
+
+.app-frame {
+  width: 100%;
+  max-width: var(--app-w);
+  min-height: var(--app-h-min);
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+}
+
+.app-content {
+  flex: 1;
+  padding: 16px;
+  background: #f9fafb;
+}
+
+/* ===== 카드 그리드 ===== */
+.cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+/* ===== 데스크톱 ===== */
+@media (min-width: 1024px) {
+  .app-frame {
+    max-width: 1200px;
+    border-radius: 16px;
+  }
+  .app-content {
+    padding: 24px;
+  }
+  .cards-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}
+/* globals.css */
+
+.page-footer {
+  flex-shrink: 0;
+  margin-top: 24px;
+  padding: 16px 0 24px;
+  text-align: center;
+  color: #6b7280;
+  border-top: 1px solid #e5e7eb;
+  font-size: 12px;
+}
+
+.page-footer p {
+  margin: 4px 0;
+}
+
+.page-footer a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+.page-footer a:hover {
+  text-decoration: underline;
+}
+/* Desktop 공통 레이아웃 */
+@media (min-width: 1079px) {
+  /* 홈 본문 */
+  .home_page {
+    max-width: 1500px; /* 본문 넓게 */
+    margin: 0 auto;
+  }
+
+  /* 홈/로그인 등 상단바: 390 고정 중앙 */
+  .home_header,
+  .page-header {
+    /* ← 로그인 헤더가 여기로 들어옴 */
+    max-width: 1500px; /* 본문 넓게 */
+
+    margin: 0 auto; /* 가운데 */
+  }
+
+  /* 홈 카드 그리드 3열 */
+  .home_main {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+  }
+}

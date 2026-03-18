@@ -1,0 +1,266 @@
+.home_page {
+  margin: 0 auto;
+  padding: 0 0 24px; /* 상단 패딩은 safe-area로 대체 */
+  min-height: 100svh;
+  font-family:
+    Pretendard,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Arial,
+    sans-serif;
+  background: transparent; /* body가 이미 전체 배경을 가짐 */
+} /* 상단바 */
+.home_header {
+  background: #ffffff;
+  border-radius: 0 0 15px 15px; /* 좌하단·우하단만 둥글게 */
+  padding: max(20px, env(safe-area-inset-top)) 12px 12px; /* safe-area 반영: 위쪽 패딩이 노치/카메라 홀 높이보다 크면 자동 보정 */
+  width: 100%;
+  box-sizing: border-box;
+} /* 1) 로고/액션 한 줄 (음수 마진 제거) */
+.brand_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logo_btn {
+  background: transparent;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.logo_img {
+  height: 25px;
+  object-fit: contain;
+}
+.header_actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+} /* 버튼 */
+.btn {
+  border-radius: 9999px;
+  font-size: 12px;
+  height: 28px;
+  padding: 0 10px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap; /* 🔹 줄바꿈 금지 */
+}
+.btn.text {
+  background: transparent;
+  color: #374151;
+  border-radius: 50px; /* 🔽 크기 조정 */
+  font-size: 17px;
+  font-weight: 500;
+  height: 30px; /* 기존 28px → 더 낮게 */
+  padding: 0 8px; /* 좌우 여백도 조금 줄임 */
+  line-height: 1; /* 텍스트 줄간격 압축 */
+  border-radius: 9999px; /* pill 모양 유지 */
+  white-space: nowrap; /* 줄바꿈 방지 */
+  border: none !important;
+}
+.btn.primary {
+  background: #0e207f;
+  color: #fff;
+  box-shadow: 0 6px 18px rgba(14, 32, 127, 0.18);
+  white-space: nowrap; /* 🔹 줄바꿈 방지 */
+  border-radius: 50px;
+  padding: 11px;
+  font-size: 17px;
+  font-weight: 500;
+  height: 30px; /* 기존 28px → 더 낮게 */
+  padding: 0 8px; /* 좌우 여백도 조금 줄임 */
+  line-height: 1; /* 텍스트 줄간격 압축 */
+  border-radius: 9999px; /* pill 모양 유지 */
+  white-space: nowrap; /* 줄바꿈 방지 */
+} /* 검색 */
+.search_row {
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  align-items: center;
+  margin-top: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  padding: 8px 10px;
+  gap: 8px;
+}
+.search_row .icon {
+  width: 16px;
+  height: 16px;
+  color: #9ca3af;
+}
+.search_input {
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font-size: 14px;
+} /* 통계/정렬/토글 */
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+.stat {
+  color: #6b7280;
+  font-size: 13px;
+}
+.right_controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  color: #374151;
+}
+.sort_select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 32px; /* 알약 높이 */
+  line-height: 32px; /* 텍스트 세로 가운데 */
+  padding: 0 28px 0 12px; /* 오른쪽 공간 확보 (화살표 자리) */
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  background: #fff
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%236b7280' stroke-width='2'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E")
+    no-repeat right 10px center; /* 🔹 커스텀 화살표 아이콘 (SVG), 우측 10px 위치 */
+  background-size: 16px 16px;
+  font-size: 13px;
+  text-align: center; /* 텍스트 가로 가운데 */
+  cursor: pointer;
+} /* 리스트(기본 1열) */
+.home_main {
+  margin-top: 12px;
+  display: grid;
+  gap: 12px;
+  padding: 0 12px; /* ← 카드 양옆 여백 추가 */
+} /* 카드 */
+.club_card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px !important; /* ✅ 네 모서리 모두 둥글게 강제 적용 */
+  padding: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column; /* 세로 레이아웃 */
+  gap: 8px;
+}
+.club_head_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.club_logo {
+  width: 70px; /* 🔹 더 작은 아이콘처럼 */
+  height: 70px;
+  /* border-radius: 8px; */
+  object-fit: cover;
+  flex-shrink: 0;
+}
+.club_head_left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  font-size: 16px;
+  padding-left: 5px;
+}
+.club_desc {
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.45;
+  text-align: left;
+}
+.club_foot_row {
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
+  color: #4b5563;
+} /* D-day 뱃지 */
+.dday {
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-size: 11px;
+  font-weight: 700;
+  border: 1px solid transparent;
+}
+.dday-hot {
+  color: #991b1b;
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+.dday-soon {
+  color: #b45309;
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+.dday-warm {
+  color: #1e3a8a;
+  background: #eff6ff;
+  border-color: #bfdbfe;
+}
+.dday-neutral {
+  color: #6b7280;
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+.dday-passed {
+  color: #374151;
+  background: #f3f4f6;
+  border-color: #e5e7eb;
+}
+.club_meta_row {
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  padding: 0 8px;
+  border-radius: 9999px;
+  font-size: 11px;
+  border: 1px solid;
+}
+.badge.open {
+  color: #065f46;
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+.badge.closed {
+  color: #7c2d12;
+  background: #fffbeb;
+  border-color: #fde68a;
+}
+.members {
+  font-size: 12px;
+  color: #6b7280;
+}
+.club_desc {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #374151;
+  line-height: 1.45;
+}
+.club_foot_row {
+  margin-top: 8px;
+  font-size: 12px;
+  color: #4b5563;
+} /* 빈 상태 */
+.empty {
+  text-align: center;
+  padding: 36px 0;
+  color: #6b7280;
+} /* ===== 데스크톱: 카드 3열, 헤더 390 유지 ===== */

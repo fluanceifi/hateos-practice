@@ -1,0 +1,194 @@
+/* src/pages/apply_form_edit/apply_form_edit.css */
+.apply_main {
+  padding: 20px 16px 40px;
+  background: #e9efff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.apply_section {
+  background: #fff;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.apply_title {
+  background: #0e207f;
+  color: #fff;
+  font-size: 15px;
+  padding: 10px;
+  border-radius: 14px 14px 0 0;
+  text-align: center;
+  font-weight: 700;
+}
+
+.apply_card {
+  background: #fff;
+  border-radius: 0 0 12px 12px;
+  padding: 14px;
+}
+
+.desc {
+  color: #6b7280;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.field_label {
+  font-size: 13px;
+  color: #6b7280;
+}
+
+.field_input {
+  margin-bottom: 10px;
+  width: 100%;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.03);
+}
+
+.field_input:focus {
+  border-color: #0e207f;
+  box-shadow: 0 0 0 3px rgba(14, 32, 127, 0.15);
+}
+
+.fieldset {
+  border: 0;
+  padding: 0;
+  margin: 10px 0 4px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.radio_item {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  font-size: 13px;
+  color: #374151;
+}
+
+.custom_list {
+  margin-top: 8px;
+}
+
+.answer_area {
+  width: 100%;
+  min-height: 84px;
+  margin-top: 6px;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 14px;
+  outline: none;
+  resize: vertical;
+}
+
+.answer_area:focus {
+  border-color: #0e207f;
+  box-shadow: 0 0 0 3px rgba(14, 32, 127, 0.15);
+}
+
+.q_remove_btn {
+  margin-bottom: 10px;
+  background: #fff1f1;
+  color: #b91c1c;
+  border: 1px solid #fca5a5;
+  border-radius: 9999px;
+  font-size: 12px;
+  padding: 6px 10px;
+  cursor: pointer;
+  justify-content: flex-end; /* 우측 정렬 */
+}
+
+.add_q_btn {
+  margin-top: 12px;
+  margin-bottom: 20px;
+}
+
+/* 변경: 인풋 아래로 버튼 내려오도록 */
+.add_row {
+  margin-top: 20px;
+  display: flex; /* grid → flex */
+  flex-direction: column; /* 세로 배치 */
+  gap: 8px;
+}
+
+.add_actions {
+  display: flex;
+  justify-content: flex-end; /* 우측 정렬 */
+  gap: 8px;
+}
+
+.outline_btn {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 20px;
+  border: 1.5px solid #0e207f;
+  color: #0e207f;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.outline_btn.sm {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.primary_btn {
+  display: inline-block;
+  padding: 7px 12px;
+  border-radius: 20px;
+  border: 1.5px solid #0e207f;
+  color: #0e207f;
+  background: #fff;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.primary_btn.sm {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.form_actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 15px;
+}
+
+.save_btn {
+  margin-top: 20px;
+  width: 100px;
+  border: none;
+  border-radius: 9999px;
+  background: #0e207f;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(14, 32, 127, 0.2);
+}
+
+.delete_btn {
+  padding: 0px 10px;
+  margin-top: 20px;
+  margin-right: 110px;
+  width: 120px;
+  border: none;
+  border-radius: 9999px;
+  background: #ff0000;
+  color: #fff !important;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(14, 32, 127, 0.2);
+}

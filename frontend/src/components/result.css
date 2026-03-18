@@ -1,0 +1,42 @@
+/* application_result_modal.css */
+.modal_overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal_card {
+  background: #fff;
+  width: 90%;
+  max-width: 360px;
+  border-radius: 16px;
+  padding: 20px;
+  text-align: center;
+}
+
+.modal_club {
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.modal_result {
+  margin: 16px 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.status_accepted {
+  color: #2e7d32;
+}
+
+.status_rejected {
+  color: #c62828;
+}
+
+.error_text {
+  color: #c62828;
+}

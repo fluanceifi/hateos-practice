@@ -1,0 +1,312 @@
+:root {
+  --club-bg: #e9efff;
+  --text-strong: #111827;
+  --text-muted: #6b7280;
+  --brand: #0e207f;
+  --border: #e5e7eb;
+}
+
+html,
+body {
+  height: 100%;
+  min-height: 100%;
+  background: var(--club-bg);
+}
+
+/* 헤더는 style.css에서 제어, 여기선 색감만 */
+.page-header {
+  background: #ffffff;
+  border-bottom: 1px solid #e5e7eb;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+.club_main {
+  background-color: var(--club-bg);
+  padding: 0 12px; /* ← 카드 양옆 여백 추가 */
+}
+/* club.css 추가 */
+.club_header_row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.club_header_left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.apply_btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #0e207f;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(14, 32, 127, 0.25);
+  transition: filter 0.2s ease;
+}
+.apply_btn:hover {
+  filter: brightness(1.05);
+}
+
+/* ===== 갤러리 ===== */
+.gallery {
+  position: relative;
+  overflow: hidden;
+}
+.carousel {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: 100%;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.carousel::-webkit-scrollbar {
+  display: none;
+}
+.slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  min-height: 320px;
+  scroll-snap-align: center;
+}
+.slide > img {
+  width: min(500px, 100%);
+  aspect-ratio: 1 / 1;
+  height: auto;
+  object-fit: cover;
+  /* border-radius: 12px; */
+  background: #f3f4f6;
+  flex-shrink: 0;
+}
+.nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 30px;
+  height: 30px;
+  border: none;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.3);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  font-size: 22px;
+  z-index: 2;
+  cursor: pointer;
+}
+.nav:hover {
+  background: rgba(0, 0, 0, 0.5);
+}
+.nav.prev {
+  left: 8px;
+}
+.nav.next {
+  right: 8px;
+}
+.dots {
+  display: flex;
+  gap: 6px;
+  justify-content: center;
+  margin: 10px 0 0;
+}
+.dots button {
+  width: 6px;
+  height: 6px;
+  border: none;
+  border-radius: 50%;
+  background: #d1d5db;
+}
+.dots button.is_active {
+  background: #374151;
+}
+
+/* ===== 메타 / 소개 ===== */
+.card {
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+  margin-top: 10px;
+}
+.info_list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.info_list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e5e7eb;
+}
+.info_list li:last-child {
+  border-bottom: 0;
+}
+.label {
+  color: #6b7280;
+  font-size: 13px;
+}
+.val {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+.section_title {
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+.desc {
+  color: #374151;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ===== 가입 신청 버튼 스타일 통일 ===== */
+.apply_link {
+  color: #fff;
+  background-color: var(--brand);
+  text-decoration: none;
+  padding: 6px 10px; /* ← 기존 크기 그대로 유지 */
+  border-radius: 9999px;
+  font-size: 14px;
+  line-height: 1;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 18px rgba(14, 32, 127, 0.22);
+  transition:
+    background-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+/* hover/active 시 색상만 변경 (위치 이동 X) */
+.apply_link:hover,
+.apply_link:active {
+  background-color: #24318f; /* --brand-weak */
+  box-shadow: 0 4px 14px rgba(14, 32, 127, 0.2);
+}
+
+/* ===== 보조 ===== */
+.page-loading .container,
+.page-error .container {
+  padding: 24px 16px;
+}
+.retry_btn {
+  margin-top: 8px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #fff;
+  cursor: pointer;
+}
+/* ✅ src/pages/club/club.css (추가/붙여넣기)
+   - ToastUI에서 맞춰둔 “실제 렌더” 스타일을 club 상세의 .desc.rich_desc에 그대로 적용
+   - 너가 준 기존 club.css는 그대로 두고, 맨 아래에 이 블록만 추가하면 됨 */
+
+.desc.rich_desc {
+  font-size: 14px;
+  line-height: 1.65;
+  color: #111827;
+  word-break: break-word;
+}
+
+/* 제목/문단/리스트 */
+.desc.rich_desc h1 {
+  font-size: 22px;
+  margin: 18px 0 10px;
+  font-weight: 800;
+}
+
+.desc.rich_desc h2 {
+  font-size: 18px;
+  margin: 16px 0 8px;
+  font-weight: 750;
+}
+
+.desc.rich_desc h3 {
+  font-size: 16px;
+  margin: 14px 0 8px;
+  font-weight: 700;
+}
+
+.desc.rich_desc p {
+  margin: 10px 0;
+}
+
+.desc.rich_desc ul,
+.desc.rich_desc ol {
+  padding-left: 18px;
+  margin: 10px 0;
+}
+
+/* 이미지 */
+.desc.rich_desc img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 10px 0;
+}
+
+/* 링크 */
+.desc.rich_desc a {
+  color: #0e207f;
+  text-decoration: underline;
+}
+
+/* 인용구 */
+.desc.rich_desc blockquote {
+  border-left: 4px solid rgba(14, 32, 127, 0.35);
+  margin: 12px 0;
+  padding: 10px 12px;
+  background: rgba(14, 32, 127, 0.06);
+  border-radius: 10px;
+}
+/* club.css 맨 아래에 추가 */
+
+/* =========================
+   동아리 소개 카드 내부 텍스트 영역 고정
+   ========================= */
+
+/* 카드 자체는 반응형 */
+section.intro.card {
+  width: 450px;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* ✅ 카드 안 텍스트 영역만 고정 폭 */
+section.intro.card .desc.rich_desc {
+  width: 340px; /* ← 텍스트 기준 폭 (원하면 380 / 400 / 450 가능) */
+  max-width: 100%;
+  margin: 0 auto; /* 가운데 정렬 */
+  box-sizing: border-box;
+}
+
+/* 내부 콘텐츠가 영역 밖으로 튀지 않게 */
+section.intro.card .desc.rich_desc *,
+section.intro.card .desc.rich_desc img,
+section.intro.card .desc.rich_desc table {
+  max-width: 100%;
+  box-sizing: border-box;
+}
